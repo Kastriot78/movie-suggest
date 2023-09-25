@@ -27,17 +27,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
+app.use('/api/users', userRoutes);
+app.use('/api/movies', moviesRoutes);
+app.use('/api/contacts', contactRoutes);
+
 mongoose.connect(process.env.DB_CONNECTION_URL);
+
+app.use("/images", express.static("images"));
 
 app.get('/', (req, res) => {
     res.send('Welcome to Movie APP.');
 });
-
-app.use("/images", express.static("images"));
-
-app.use('/api/users', userRoutes);
-app.use('/api/movies', moviesRoutes);
-app.use('/api/contacts', contactRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
