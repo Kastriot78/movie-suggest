@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SearchResults from '../../pages/SearchResults/SearchResults';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/apiCalls';
@@ -19,6 +19,7 @@ const Header = () => {
     const [loading, setLoading] = useState(false);
 
     const location = useLocation();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const outsideClickAlert = (e) => {
@@ -32,6 +33,13 @@ const Header = () => {
     const handleLogout = () => {
         logoutUser(dispatch);
     }
+
+    const handleMenuItemClick = (path) => {
+        // Close the mobile menu
+        setMenuActive(false);
+    
+        navigate(path);
+      };
 
     useEffect(() => {
         const searchMovies = async () => {
@@ -157,29 +165,29 @@ const Header = () => {
                                     <span></span>
                                 </button>
                                 <li>
-                                    <Link to="/movies" className={location.pathname === '/movies' ? 'active' : ''}>Movies</Link>
+                                    <Link to="/movies" className={location.pathname === '/movies' ? 'active' : ''} onClick={() => handleMenuItemClick('/movies')}>Movies</Link>
                                 </li>
                                 <li>
-                                    <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link>
+                                    <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={() => handleMenuItemClick('/contact')}>Contact</Link>
                                 </li>
                                 {
                                     user && <li>
-                                        <Link to="/watchlist" className={location.pathname === '/watchlist' ? 'active' : ''}>Watchlist</Link>
+                                        <Link to="/watchlist" className={location.pathname === '/watchlist' ? 'active' : ''} onClick={() => handleMenuItemClick('/watchlist')}>Watchlist</Link>
                                     </li>
                                 }
                                 {
                                     user && user?.isAdmin && <li>
-                                        <Link to="/admin/admin-dashboard" className={location.pathname === '/admin/admin-dashboard' ? 'active' : ''}>Admin Panel</Link>
+                                        <Link to="/admin/admin-dashboard" className={location.pathname === '/admin/admin-dashboard' ? 'active' : ''} onClick={() => handleMenuItemClick('/admin/admin-dashboard')}>Admin Panel</Link>
                                     </li>
                                 }
                                 {
                                     user && <li>
-                                        <Link to="/account" className={location.pathname === '/account' ? 'active' : ''}>My Account</Link>
+                                        <Link to="/account" className={location.pathname === '/account' ? 'active' : ''} onClick={() => handleMenuItemClick('/account')}>My Account</Link>
                                     </li>
                                 }
                                 {
                                     !user ? <li>
-                                        <Link to="/login" className={location.pathname === '/login' ? 'active' : ''}>Login</Link>
+                                        <Link to="/login" className={location.pathname === '/login' ? 'active' : ''} onClick={() => handleMenuItemClick('/login')}>Login</Link>
                                     </li>
                                         :
                                         <li>
@@ -195,12 +203,12 @@ const Header = () => {
                 <div className='search-wrapper mobile_search_wrapper' ref={wrapperSearchRef}>
                     <form className='d-flex align-items-center justify-content-between w-100 search_box_form'>
                         <input
-                                type="text"
-                                className='search_box_text'
-                                placeholder='Search by category'
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
+                            type="text"
+                            className='search_box_text'
+                            placeholder='Search by category'
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                         <button className='w-10 h-10 icon_search cursor-pointer'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
