@@ -32,7 +32,7 @@ Users can register, log in, update their profiles, and maintain a watchlist of t
   - React Query for data fetching
   - React Router for navigation
   - Axios for API requests
-  - Swiper for slider
+  - Swiper
   - react-toastify
 
 ## Getting Started
