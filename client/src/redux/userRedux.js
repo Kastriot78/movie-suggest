@@ -50,7 +50,6 @@ export const userSlice = createSlice({
         signUpSuccess: (state, action) => {
             state.loading = false;
             state.success = true;
-            state.user = action.payload;
             state.error = ''
         },
         signUpFailure: (state, action) => {
