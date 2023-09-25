@@ -168,7 +168,7 @@ const Header = () => {
                                     </li>
                                 }
                                 {
-                                    user && <li>
+                                    user && user?.isAdmin && <li>
                                         <Link to="/admin/admin-dashboard" className={location.pathname === '/admin/admin-dashboard' ? 'active' : ''}>Admin Panel</Link>
                                     </li>
                                 }
@@ -194,12 +194,18 @@ const Header = () => {
 
                 <div className='search-wrapper mobile_search_wrapper' ref={wrapperSearchRef}>
                     <form className='d-flex align-items-center justify-content-between w-100 search_box_form'>
-                        <input type="text" className='search_box_text' placeholder='Search by category' />
+                        <input
+                                type="text"
+                                className='search_box_text'
+                                placeholder='Search by category'
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
                         <button className='w-10 h-10 icon_search cursor-pointer'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
-                    <SearchResults open={openSearchResults} searchResults={searchResults} loading={loading} searchTerm={searchTerm} />
+                    <SearchResults open={openSearchResults} searchResults={searchResults} loading={loading} searchTerm={searchTerm} user={user} />
                 </div>
             </div>
         </header>
