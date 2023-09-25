@@ -34,7 +34,9 @@ const SingleMovie = () => {
 
     useEffect(() => {
         fetchMovie();
-        getMoviesByCategory(highestCategory, dispatch);
+        if (highestCategory) {
+            getMoviesByCategory(highestCategory, dispatch);
+        }
     }, [dispatch, highestCategory]);
 
     return (
