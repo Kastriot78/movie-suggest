@@ -11,6 +11,7 @@ import 'swiper/css';
 
 const Movies = () => {
     const { movies, moviesByCategory, loading } = useSelector((state) => state.movie);
+    const { user} = useSelector((state) => state.user);
     const watchListItems = useSelector((state) => state.movie.items);
     const mostFrequentCategory = findMostFrequentCategory(watchListItems);
 
@@ -97,7 +98,7 @@ const Movies = () => {
                 }
 
                                {
-                    moviesByCategory?.length > 0 && <div className='movies_wrapper mt-5'>
+                    user && moviesByCategory?.length > 0 && <div className='movies_wrapper mt-5'>
                         <div className="section-title d-flex align-items-center justify-content-between">
                             <h2>Based on your preferences</h2>
                             <div className='swiper_navigation_btns'>
