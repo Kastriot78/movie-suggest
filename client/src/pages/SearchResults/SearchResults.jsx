@@ -10,10 +10,15 @@ const SearchResults = ({ open, searchResults, loading, searchTerm, user }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleClickSearch = async (item) => {
-        await axios.put(`${apiUrl}/api/users/preferences/${user?._id}`, {category: item?.category}).then(res => {
+    const handleClickSearch = (item) => {
+        if (!user) {
             navigate(`/movie/${item?._id}`);
-            updateUser(user._id, {  }, dispatch);
+            return;
+        }
+
+        axios.put(`${apiUrl}/api/users/preferences/${user?._id}`, { category: item?.category }).then(res => {
+            navigate(`/movie/${item?._id}`);
+            updateUser(user._id, {}, dispatch);
         })
     }
 
@@ -21,8 +26,8 @@ const SearchResults = ({ open, searchResults, loading, searchTerm, user }) => {
         <div className={`search_results_wrapper ${open && searchTerm?.length > 0 ? 'open' : ''}`}>
             <ul>
                 {
-                    loading ? <li className='skeleton_line'></li> : searchResults?.length > 0 ? searchResults?.map((item, index) => <li key={index}>
-                        <Link onClick={() => handleClickSearch(item)}>
+                    loading ? <li className='skeleton_line'></li> : searchResults?.length > 0 ? searchResults?.map((item, index) => <li onClick={() => handleClickSearch(item)} key={index}>
+                        <Link>
                             {item?.title}
                         </Link>
                     </li>
