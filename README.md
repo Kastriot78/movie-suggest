@@ -2,6 +2,7 @@
 # Movie Recommendation App
 
 ## Overview
+URL link in vercel: https://movie-suggest-tawny.vercel.app/
 
 This is a movie recommendation web application that suggests films to users based on their preferences. The project is built using Node.js for the backend and React.js for the frontend. 
 It also utilizes several libraries and technologies, including Redux Toolkit, React Query, and token-based authentication for user management. 
