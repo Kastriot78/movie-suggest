@@ -48,5 +48,9 @@ To run this project locally, follow these steps:
 8. Run the frontend: `npm start`
 
 The application should now be running locally. Open your web browser and access it at `http://localhost:3000`.
+![alt text](https://github.com/Kastriot78/movie-suggest/blob/main/images-app/Screenshot_2.jpg?raw=true)
+![alt text](https://github.com/Kastriot78/movie-suggest/blob/main/images-app/Screenshot_3.jpg?raw=true)
+![alt text](https://github.com/Kastriot78/movie-suggest/blob/main/images-app/Screenshot_4.jpg?raw=true)
+![alt text](https://github.com/Kastriot78/movie-suggest/blob/main/images-app/Screenshot_5.jpg?raw=true)
 
 
