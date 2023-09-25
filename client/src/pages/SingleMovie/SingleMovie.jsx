@@ -21,6 +21,7 @@ const SingleMovie = () => {
     const { id } = useParams();
 
     const { loading, movies, moviesByCategory } = useSelector(state => state.movie);
+    const user = useSelector((state) => state.user.user);
 
     const fetchMovie = async () => {
         await axios.get(`${apiUrl}/api/movies/${id}`)
@@ -65,7 +66,7 @@ const SingleMovie = () => {
                 </div>
 
                                 {
-                    moviesByCategory?.length > 0 && <div className='movies_wrapper mt-5'>
+                    user && moviesByCategory?.length > 0 && <div className='movies_wrapper mt-5'>
                         <div className="section-title d-flex align-items-center justify-content-between">
                             <h2>Based on your preferences</h2>
                             <div className='swiper_navigation_btns'>
