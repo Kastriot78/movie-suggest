@@ -1,0 +1,28 @@
+.movies_wrapper .section-title {
+    border-bottom: 1px solid #ccc;
+    margin: 45px 0;
+}
+
+.movies_wrapper .section-title h2 {
+    font-size: 24px;
+    color: #292B2C;
+    margin: 0;
+    font-weight: 400;
+    padding: 0 0 15px;
+}
+
+
+.movies_wrapper .swiper_navigation_btns {
+    padding: 0 0 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.movies_wrapper .swiper_navigation_btns button {
+    border: none;
+}
+
+.movies_wrapper .swiper_navigation_btns button svg {
+    width: 28px;
+    height: 28px;
+}

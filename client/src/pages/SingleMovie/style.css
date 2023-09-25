@@ -1,0 +1,37 @@
+.movie_details_info {
+    margin: 25px 0 25px;
+}
+
+.movie_details_info ul li {
+    color: #292b2c;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0 0 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.movie_details_info ul li  span {
+    font-weight: 500;
+    min-width: 85px;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 10px;
+    color: #f4181c;
+}
+
+.movie_details p {
+    color: #292b2c;
+    width: 97%;
+    line-height: 26px;
+    margin: 0 0 18px;
+}
+
+@media (max-width: 600px) {
+    .movie_details p {
+        width: 100%;
+        font-size: 14px;
+        margin: 0;
+    }
+}

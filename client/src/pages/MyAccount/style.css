@@ -1,0 +1,19 @@
+.account_list li {
+    font-size: 18px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+}
+
+.account_list li.active {
+    border-bottom: 2px solid #f4181c;
+}
+
+.account-form-wrap h3 {
+    font-size: 23px;
+}
+
+.account-form-wrap label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 3px
+}
