@@ -5,10 +5,12 @@ export function FindCategoryWithHighestCount() {
 
   let highestCategory = null;
   let highestCount = -1;
-  for (const preference of user?.preferences) {
-    if (preference.count > highestCount) {
-      highestCategory = preference.category;
-      highestCount = preference.count;
+  if(user) {
+    for (const preference of user?.preferences) {
+      if (preference.count > highestCount) {
+        highestCategory = preference.category;
+        highestCount = preference.count;
+      }
     }
   }
 
