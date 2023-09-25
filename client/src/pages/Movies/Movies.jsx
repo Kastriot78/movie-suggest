@@ -96,62 +96,64 @@ const Movies = () => {
                     </Swiper>
                 }
 
-                <div className='movies_wrapper mt-5'>
-                    <div className="section-title d-flex align-items-center justify-content-between">
-                        <h2>Based on your preferences</h2>
-                        <div className='swiper_navigation_btns'>
-                            <button className="bg-white -ml-2 lg:-ml-4 flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none swiper-button-prev" onClick={() => sliderRef.current?.slidePrev()}>
-                                <svg
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                    className="chevron-left w-6 h-6"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
-                            </button>
-                            <button className="bg-white -mr-2 lg:-mr-4 flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none swiper-button-next" onClick={() => sliderRef.current?.slideNext()}>
-                                <svg
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                    className="chevron-right w-6 h-6"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
-                            </button>
+                               {
+                    moviesByCategory?.length > 0 && <div className='movies_wrapper mt-5'>
+                        <div className="section-title d-flex align-items-center justify-content-between">
+                            <h2>Based on your preferences</h2>
+                            <div className='swiper_navigation_btns'>
+                                <button className="bg-white -ml-2 lg:-ml-4 flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none swiper-button-prev" onClick={() => sliderRef.current?.slidePrev()}>
+                                    <svg
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        className="chevron-left w-6 h-6"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clipRule="evenodd"
+                                        ></path>
+                                    </svg>
+                                </button>
+                                <button className="bg-white -mr-2 lg:-mr-4 flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none swiper-button-next" onClick={() => sliderRef.current?.slideNext()}>
+                                    <svg
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        className="chevron-right w-6 h-6"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clipRule="evenodd"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
+                        <Swiper
+                            spaceBetween={10}
+                            // slidesPerView={4}
+                            onSwiper={it => (sliderRef.current = it)}
+                            breakpoints={{
+                                // when window width is >= 320px
+                                320: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 24,
+                                },
+                                // when window width is >= 640px
+                                640: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 24,
+                                },
+                            }}
+                        >
+                            {moviesByCategory?.map((movie, index) => (
+                                <SwiperSlide key={index}>
+                                    <Movie movie={movie} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
-                    <Swiper
-                        spaceBetween={10}
-                        // slidesPerView={4}
-                        onSwiper={it => (sliderRef.current = it)}
-                        breakpoints={{
-                            // when window width is >= 320px
-                            320: {
-                                slidesPerView: 1,
-                                spaceBetween: 24,
-                            },
-                            // when window width is >= 640px
-                            640: {
-                                slidesPerView: 4,
-                                spaceBetween: 24,
-                            },
-                        }}
-                    >
-                        {moviesByCategory?.map((movie, index) => (
-                            <SwiperSlide key={index}>
-                                <Movie movie={movie} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
+                }
             </div>
         </section>
     )
