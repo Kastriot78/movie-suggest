@@ -13,7 +13,7 @@ Users can register, log in, update their profiles, and maintain a watchlist of t
 - User Registration: Users can create accounts with their email and password.
 - User Login: Registered users can log in to the system using their credentials.
 - User Profile: Users can update their profiles.
-- Movie Recommendations: The application generates movie recommendations based on user preferences.
+- Movie Recommendations: The application generates movie recommendations based on user preferences.You need to login and add films to watchlist or search by category on search bar.
 - Watchlist: Users can add and remove movies from their watchlist.
 - Secure Authentication: Token-based authentication is used to secure user accounts.
 - Responsive Design: The application is responsive and works well on both desktop and mobile devices.
