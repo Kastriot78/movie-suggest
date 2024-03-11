@@ -71,9 +71,13 @@ const LatestMovies = () => {
                         },
                         // when window width is >= 640px
                         640: {
-                            slidesPerView: 4,
+                            slidesPerView: 2,
                             spaceBetween: 24,
                         },
+                        1000: {
+                            slidesPerView: 4,
+                            spaceBetween: 24,
+                        }
                     }}
                     onSwiper={it => (sliderRef.current = it)}
                 >
