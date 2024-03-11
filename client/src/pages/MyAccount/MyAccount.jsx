@@ -53,15 +53,12 @@ const MyAccount = () => {
 
         if (Object.keys(errors).length === 0) {
             updateUser(user._id, { ...formData, currentPassword: currentPassword }, dispatch);
+            toast.success("User profile updated successfully.");
         }
     }
 
 
     useEffect(() => {
-        if (success) {
-            toast.success("User profile updated successfully.");
-        }
-
         return (() => {
             dispatch(userSlice.actions.clearState());
         })
