@@ -30,7 +30,7 @@ const MovieByCategory = () => {
     return (
         <section className='movies_wrapper'>
             <div className="section-title d-flex align-items-center justify-content-between">
-                <h2>Comedy Movies</h2>
+                <h2>Action Movies</h2>
                 <div className='swiper_navigation_btns'>
                     <button className="bg-white -ml-2 lg:-ml-4 flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none swiper-button-prev" onClick={() => sliderRef.current?.slidePrev()}>
                         <svg
