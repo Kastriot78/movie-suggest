@@ -42,12 +42,14 @@ const Movie = ({ movie }) => {
                 <div className="movie-content">
                     <h3 className='title'>{movie?.title}</h3>
                     <span>Quality: HD</span>
-                    <button className='submit-btn mb-2' onClick={() => setOpenModal(true)}>Trailer</button>
-                    <button className='submit-btn' onClick={handleWatchList}>
-                        {
-                            watchListItems.some((watchListItem) => watchListItem._id === movie?._id) ? <i className="fa-solid fa-heart full-heart"></i> : 'Add to watchlist'
-                        }
-                    </button>
+                    <div class="movie_buttons_wrapper">
+                        <button className='submit-btn mb-2' onClick={() => setOpenModal(true)}>Trailer</button>
+                        <button className='submit-btn' onClick={handleWatchList}>
+                            {
+                                watchListItems.some((watchListItem) => watchListItem._id === movie?._id) ? <i className="fa-solid fa-heart full-heart"></i> : 'Add to watchlist'
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
