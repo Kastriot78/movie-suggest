@@ -313,3 +313,35 @@ a:hover {
 }
 
 /* Table Skeleton */
+
+.movieModal {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.movieModal .modal-title {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.movieModal .btn-close {
+    outline: 0;
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    background: rgba(24, 174, 227, 0.1);
+    border-radius: 100%;
+    color: #18AEE3;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movieModal.show {
+    display: block;
+    z-index: 99999;
+}
+
+.movieModal .modal-dialog {
+    max-width: 900px;
+}
