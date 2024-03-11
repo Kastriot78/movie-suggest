@@ -132,3 +132,7 @@
     align-items: center;
     gap: 6px;
 }
+
+.movie_buttons_wrapper .submit-btn {
+    min-width: 168px;
+}
